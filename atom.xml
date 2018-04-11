@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-11T14:14:08.629Z</updated>
+  <updated>2018-04-11T14:28:14.059Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -18,34 +18,12 @@
   
   <entry>
     <title>Java排序中的比较器</title>
-    <link href="http://yoursite.com/2018/04/11/myfirstblog/"/>
-    <id>http://yoursite.com/2018/04/11/myfirstblog/</id>
-    <published>2018-04-11T14:11:00.000Z</published>
-    <updated>2018-04-11T14:14:08.629Z</updated>
+    <link href="http://yoursite.com/2017/05/26/java%E6%AF%94%E8%BE%83%E5%99%A8/"/>
+    <id>http://yoursite.com/2017/05/26/java比较器/</id>
+    <published>2017-05-25T16:00:00.000Z</published>
+    <updated>2018-04-11T14:28:14.059Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class Comp &#123;</span><br><span class="line"></span><br><span class="line">int a;</span><br><span class="line">int b;</span><br><span class="line">//构造函数</span><br><span class="line">public Comp(int a, int b) &#123;</span><br><span class="line">this.a=a;</span><br><span class="line">this.b=b;</span><br><span class="line">&#125;</span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">//创建对象数组</span><br><span class="line">Comp []comp=new Comp[]&#123;new Comp(1,3),new Comp(2, 2),new Comp(0, 4)&#125;;</span><br><span class="line">//调用比较器</span><br><span class="line">Arrays.sort(comp,new A());</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">//创建比较器A，A为按a的升序排序</span><br><span class="line">class A implements Comparator&lt;Comp&gt;&#123;</span><br><span class="line"></span><br><span class="line">public int compare(Comp comp1,Comp comp2) &#123;</span><br><span class="line">return comp1.a-comp2.a;//按a的升序</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      我的Java比较器
-    
-    </summary>
-    
-      <category term="JavaSE" scheme="http://yoursite.com/categories/JavaSE/"/>
-    
-    
-      <category term="Comparator" scheme="http://yoursite.com/tags/Comparator/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://yoursite.com/2018/04/11/Java%E6%8E%92%E5%BA%8F%E4%B8%AD%E7%9A%84%E6%AF%94%E8%BE%83%E5%99%A8/"/>
-    <id>http://yoursite.com/2018/04/11/Java排序中的比较器/</id>
-    <published>2018-04-11T09:21:40.577Z</published>
-    <updated>2018-04-11T12:34:56.343Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class Comp &#123;</span><br><span class="line"></span><br><span class="line">int a;</span><br><span class="line">int b;</span><br><span class="line">//构造函数</span><br><span class="line">public Comp(int a, int b) &#123;</span><br><span class="line">this.a=a;</span><br><span class="line">this.b=b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><pre><code>&lt;!--more--&gt;</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">//创建对象数组</span><br><span class="line">Comp []comp=new Comp[]&#123;new Comp(1,3),new Comp(2, 2),new Comp(0, 4)&#125;;</span><br><span class="line">//调用比较器</span><br><span class="line">Arrays.sort(comp,new A());</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">//创建比较器A，A为按a的升序排序</span><br><span class="line">class A implements Comparator&lt;Comp&gt;&#123;</span><br><span class="line"></span><br><span class="line">public int compare(Comp comp1,Comp comp2) &#123;</span><br><span class="line">return comp1.a-comp2.a;//按a的升序</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -56,6 +34,10 @@
     
     </summary>
     
+      <category term="JavaSE" scheme="http://yoursite.com/categories/JavaSE/"/>
+    
+    
+      <category term="Comparator" scheme="http://yoursite.com/tags/Comparator/"/>
     
   </entry>
   
