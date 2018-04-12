@@ -64,6 +64,28 @@
   </entry>
   
   <entry>
+    <title>二叉树知前序中序求原二叉树</title>
+    <link href="http://yoursite.com/2018/01/24/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9F%A5%E5%89%8D%E5%BA%8F%E4%B8%AD%E5%BA%8F%E6%B1%82%E5%8E%9F%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    <id>http://yoursite.com/2018/01/24/二叉树知前序中序求原二叉树/</id>
+    <published>2018-01-23T16:00:00.000Z</published>
+    <updated>2018-04-12T14:21:49.853Z</updated>
+    
+    <content type="html"><![CDATA[<p>问题：<br>    输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。<br>假设输入的前序遍历和中序遍历的结果中都不含重复的数字。<br>例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for binary tree</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode left;</span><br><span class="line"> *     TreeNode right;</span><br><span class="line"> *     TreeNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> *</span><br><span class="line"> * 前序1，2，4，7，3，5，6，8；中序：4，7，2，1，5，3，8，6</span><br><span class="line"> * 前序中的1为此二叉树的根，所以根据中序可得1左边的节点为4，7，2；右边的节点为5，3，8，6</span><br><span class="line"> * 在根据前序2，4，7；中序4，7，2可得：2左边的节点为4，7；没有右边的节点</span><br><span class="line"> * 以此类推，可得到此二叉树</span><br><span class="line"> * </span><br><span class="line"> */</span><br><span class="line">public class Solution &#123;</span><br><span class="line">     public TreeNode reConstructBinaryTree(int [] pre,int [] in) &#123;//传入前序，中序</span><br><span class="line">        TreeNode tn=myTree(pre,0,pre.length-1,in,0,in.length-1);//接收此二叉树</span><br><span class="line">        return tn;</span><br><span class="line">    &#125;</span><br><span class="line">    public TreeNode myTree(int[] pre, int startP, int endP, int[] in, int startI, int endI)&#123;</span><br><span class="line">        //参数依次为：前序，开始位置，结束位置；后序，开始位置，结束位置</span><br><span class="line">        if (startP&gt;endP||startI&gt;endI)&#123;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">         </span><br><span class="line">        TreeNode tree=new TreeNode(pre[startP]);</span><br><span class="line">        //循环可获得上述所分析得到的前序中的一段对应中序的一段，然后递归在分析</span><br><span class="line">  前序开始位置结束位置，后序开始位置结束位置规律可通过模拟找出,这个应该是这里面最难的</span><br><span class="line">        for (int i=0;i&lt;=endI;i++)&#123;</span><br><span class="line">            if (pre[startP]==in[i])&#123;//找到前序的某一个节点对应中序的某一个节点，然后开始分段</span><br><span class="line">                tree.left=myTree(pre, startP+1, startP+i-startI, in,startI,i-1);</span><br><span class="line">                tree.right=myTree(pre, startP+i-startI+1, endP, in, i+1, endI);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return tree;//返回此二叉树</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;问题：&lt;br&gt;    输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。&lt;br&gt;假设输入的前序遍历和中序遍历的结果中都不含重复的数字。&lt;br&gt;例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="剑指Offer" scheme="http://yoursite.com/categories/%E5%89%91%E6%8C%87Offer/"/>
+    
+    
+      <category term="二叉树" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java集合ArrayList的内部实现</title>
     <link href="http://yoursite.com/2017/06/04/Java%E9%9B%86%E5%90%88ArrayList%E7%9A%84%E5%86%85%E9%83%A8%E5%AE%9E%E7%8E%B0/"/>
     <id>http://yoursite.com/2017/06/04/Java集合ArrayList的内部实现/</id>
